@@ -48,128 +48,113 @@ Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
 
-## APP.JS
+## cal.JS
 
 ```
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './index.css';
 
-function App() {
-  const [input, setInput] = useState("");
+const Calculator = () => {
+  const [input, setInput] = useState('');
 
-  function handleClick(value) {
-    setInput(input + value);
-  }
+  const handleClick = (value) => {
+    setInput((prev) => prev + value);
+  };
 
-  function clearInput() {
-    setInput("");
-  }
-
-  function calculateResult() {
+  const calculate = () => {
     try {
-      setInput(eval(input).toString()); 
-    } catch (error) {
-      setInput("Error");
+      // eslint-disable-next-line no-eval
+      setInput(eval(input).toString());
+    } catch {
+      setInput('Error');
     }
-  }
+  };
+
+  const clear = () => {
+    setInput('');
+  };
 
   return (
     <div className="calculator">
-      <h2>Calculator</h2>
+      <h2>Simple Calculator</h2>
       <input type="text" value={input} readOnly />
       <div className="buttons">
-        {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map(function (char) {
-          return (
-            <button key={char} onClick={char === "=" ? calculateResult : function () { handleClick(char); }}>
-              {char}
-            </button>
-          );
-        })}
-        <button className="clear" onClick={clearInput}>C</button>
+        {'1234567890+-*/.'.split('').map((char) => (
+          <button key={char} onClick={() => handleClick(char)}>{char}</button>
+        ))}
+        <button onClick={calculate}>=</button>
+        <button onClick={clear}>C</button>
       </div>
+      <footer>
+        <p>VIJAY K | Reg No: 212223040236</p>
+      </footer>
+    </div>
+  );
+};
+
+export default Calculator;
+```
+
+## APP.js:
+
+```
+import React from 'react';
+import Calculator from './Calculator';
+
+function App() {
+  return (
+    <div className="App">
+      <Calculator />
     </div>
   );
 }
 
 export default App;
-
 ```
-
-## APP.CSS:
-
+## index.css
 ```
-
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #d78080;
   font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  text-align: center;
 }
 
 .calculator {
-  background: #e09e9e;
+  background: rgb(64, 217, 244);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 250px;
-}
-
-h2 {
-  margin-bottom: 10px;
+  margin: 50px auto;
+  border-radius: 12px;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 input {
   width: 100%;
-  height: 40px;
-  text-align: right;
-  font-size: 1.5em;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #e6d7d7;
-  border-radius: 5px;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-button {
   padding: 10px;
-  font-size: 1.2em;
-  background: #3498db;
-  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.buttons button {
+  width: 60px;
+  height: 40px;
+  margin: 5px;
+  font-size: 1.1rem;
   border: none;
+  background: #0e08b6;
+  color: white;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-button:hover {
-  background: #2980b9;
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgb(6, 4, 4);
 }
-
-.clear {
-  grid-column: span 4;
-  background: #e74c3c;
-}
-
-.clear:hover {
-  background: #c0392b;
-}
-
-
 ```
-
 ## OUTPUT
+![WhatsApp Image 2025-03-28 at 22 40 25_3a18970c](https://github.com/user-attachments/assets/2fe807bf-629e-4bde-91d5-233d120515c9)
 
-![image](https://github.com/user-attachments/assets/94ceed96-a463-4d25-9134-1c425df65da5)
-
-
-![image](https://github.com/user-attachments/assets/6abf88f2-3948-45c7-b0fa-a6d51eb697b4)
 
 ## RESULT
 The program for developing a simple calculator in React.js is executed successfully.
