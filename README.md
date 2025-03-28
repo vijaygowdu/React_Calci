@@ -165,10 +165,10 @@ button:hover {
 
 ## OUTPUT
 
-![alt text](<Screenshot (105).png>)
+![image](https://github.com/user-attachments/assets/94ceed96-a463-4d25-9134-1c425df65da5)
 
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/6abf88f2-3948-45c7-b0fa-a6d51eb697b4)
 
 ## RESULT
 The program for developing a simple calculator in React.js is executed successfully.
