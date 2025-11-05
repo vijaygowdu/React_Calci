@@ -1,7 +1,5 @@
 # Ex04 Simple Calculator - React Project
-## Date:28/03/2025
-## Name: K VIJAY
-## Reg No:212223040236
+
 ## AIM
 To  develop a Simple Calculator using React.js with clean and responsive design, ensuring a smooth user experience across different screen sizes.
 
